@@ -1,9 +1,11 @@
 // Added inquirer package
 const inquirer = require("inquirer");
 const fs = require('fs');
+const generateMarkdown = require('/generateMarkdown');
 
 // User questions
-inquirer.prompt(
+const questions = () => {
+return inquirer.prompt(
     [
         {
             type: 'input',
@@ -55,40 +57,17 @@ inquirer.prompt(
         }
     ]
 
-).then (({
-    name,
-    description,
-    installation,
-    usage,
-    contributers,
-    license,
-    email,
-    github
-})=>{
-  
-    const template = `# ${name}
-    *[Installation](#installation)
-    *[Usage](#usage)
-    *[Description](#description)
-    *[Contributers](#contributers)
-    *[License](#license)
-    *[Email](#email)
-    *[GitHub](#github)
 
-    ## Installation
-    ${installation}
-    ## Usage
-    ${usage}
-    ## Description
-    ${description}
-    ## Contributers
-    ${contributers}
-    ## License
-    ${license}
-    ## Email
-    ${email}
-    ## Github
-    ${github}`;
+    ).then (({
+        name,
+        description,
+        installation,
+        usage,
+        contributers,
+        license,
+        email,
+        github
+    })=>{
 
     //function to create readme.md
     createNewFile(title, template);

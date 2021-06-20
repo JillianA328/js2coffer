@@ -96,7 +96,7 @@ inquirer.prompt(
 );
 
 //function using createNewFile
-function createNewFile(_fileName,_data){
+function createNewFile(name,data){
 
     fs.writeFile(`./$(fileName.toLowerCase().split(' ').join('')}.md',data,(err)=>){
         if(err){
